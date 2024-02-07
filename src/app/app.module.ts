@@ -10,24 +10,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignInComponent } from './components/signin/signin.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/register/signin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
-import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignInComponent,
-    DashboardComponent,
     NavbarComponent,
     SpinnerComponent,
     ProductsPageComponent,
-    AdminComponent
+    AdminComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

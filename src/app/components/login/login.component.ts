@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../../interfaces/user';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorService } from '../../services/error.services';
-import { UserService } from '../../services/user.services';
+import { AuthenticationService } from '../../services/authentication.services';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private toastr: ToastrService,
-    private _userService: UserService,
+    private _AuthenticationService: AuthenticationService,
     private router: Router,
    private _errorService: ErrorService) { }
 
@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this._userService.login(user).subscribe({
+    
+    this._AuthenticationService.login(user).subscribe({
       next: (token) => {
         localStorage.setItem('token', token);
         this.router.navigate(['/dashboard'])

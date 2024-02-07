@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../interfaces/user';
 import { ErrorService } from '../../services/error.services';
-import { UserService } from '../../services/user.services';
+import { AuthenticationService } from '../../services/authentication.services';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private toastr: ToastrService,
-    private _userService: UserService,
+    private _AuthenticationService: AuthenticationService,
     private router: Router,
     private _errorService: ErrorService) { }
 
@@ -43,7 +43,7 @@ export class SignInComponent implements OnInit {
     }
 
     this.loading = true;
-    this._userService.signIn(user).subscribe({
+    this._AuthenticationService.signIn(user).subscribe({
       next: (v) => {
         this.loading = false;
         this.toastr.success(`The user ${this.username} was successfully registered`, 'Registered user');

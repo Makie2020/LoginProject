@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { ErrorService } from '../services/error.services';
+import { ErrorService } from '../../services/error.services';
 
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {
