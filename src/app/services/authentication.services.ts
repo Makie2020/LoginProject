@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from '../../envoirments/envoirment';
 import { User } from '../interfaces/user';
+import { JwtService } from './jwt.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +12,33 @@ import { User } from '../interfaces/user';
 export class AuthenticationService {
   private myAppUrl: string;
   private myApiUrl: string;
-  public currentUser: Observable<User>
-  private currentUserSubject: BehaviorSubject<User>
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private jwtService:JwtService) {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/users'
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('token')!));
-    this.currentUser = this.currentUserSubject.asObservable()
+  }
+  
+  public get user() {
+    let token = localStorage.getItem('token');
+    if(!token) return null;
+    return this.jwtService.DecodeToken(token);
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value
+  public get isAdmin() {
+    let token: any = this.jwtService.DecodeToken(localStorage.getItem('token')!);
+    if( token.role === 1) return true;
+    return false;
   }
 
-  get isAdmin() {
-    return this.currentUser && this.currentUserSubject.value.role === 1
+  public get isUser() {
+    let token: any = this.jwtService.DecodeToken(localStorage.getItem('token')!);
+    if( token.role != 1) return true;
+    return false;
   }
 
-  get isUser() {
-    return this.currentUser && this.currentUserSubject.value.role != 1
+  public get permissions() {
+    let token: any = this.jwtService.DecodeToken(localStorage.getItem('token')!);
+    return token.permission;
   }
 
   signIn(user: User): Observable<any> {

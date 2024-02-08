@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from './services/authentication.services';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     }),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: AddTokenInterceptor, 
+      multi: true, 
+    },  
+    AuthenticationService,
   ],
   bootstrap: [AppComponent]
 })
