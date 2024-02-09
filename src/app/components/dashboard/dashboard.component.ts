@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { AuthenticationService } from '../../services/authentication.services';
-import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +15,7 @@ export class DashboardComponent implements OnInit {
   admin: any;
   permissions: any;
 
-  constructor(private _productService: ProductService, public _authenticationService: AuthenticationService,) { }
+  constructor(private _productService: ProductService, public _authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.getProducts();

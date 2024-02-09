@@ -6,15 +6,19 @@ import { AuthenticationService } from '../../services/authentication.services';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
+  routeURL: string;
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+    this.routeURL = this.router.url;
+  }
 
   canActivate(): boolean {
     if (this.authenticationService.isAdmin) {
-      this.router.navigate(['/admin'])
       return true;
     } else {
-      this.router.navigate(['/dashboard']);
+      this.routeURL = '/dashboard';
+      this.router.navigate(['/dashboard']
+      );
       return false;
     }
   }

@@ -15,9 +15,14 @@ import { SignInComponent } from './components/register/signin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
-import { ProductsPageComponent } from './components/products-page/products-page.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+// Components Prime
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
@@ -27,9 +32,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SignInComponent,
     NavbarComponent,
     SpinnerComponent,
-    ProductsPageComponent,
     AdminComponent,
     DashboardComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule,
     ToastrModule,
     HttpClientModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
+    MenubarModule,
+    ButtonModule,
+    TableModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-bottom-right',

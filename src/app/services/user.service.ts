@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 import { environment } from '../../envoirments/envoirment';
-import { User } from '../interfaces/user';
-
+import { IUser, User } from '../interfaces/user';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -15,11 +14,11 @@ export class UserService {
     this.myApiUrl = 'api/users'
   }
 
-  getAll() {
-    return this._http.get<User[]>(`${this.myAppUrl}${this.myApiUrl}`)
+  getAllUsers() {
+    return this._http.get<IUser[]>(`${this.myAppUrl}${this.myApiUrl}`)
   }
 
-  getById(id: number) {
+  getUserById(id: number) {
     return this._http.get<User>(`${this.myAppUrl}${this.myApiUrl}/${id}`)
   }
 }

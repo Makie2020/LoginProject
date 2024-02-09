@@ -7,3 +7,10 @@ export interface User {
   role?: Role,
   permission?: Permission[]
 }
+
+export interface IUser {
+  username: string,
+  password: string,
+  'users_role.role_id': number,
+  'roles_permissions.permission_id': number[];
+}
