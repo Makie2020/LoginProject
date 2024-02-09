@@ -11,8 +11,8 @@
     <tr>
       <td>{{ user.id }}</td>
       <td>{{ user.username }}</td>
-      <td>{{ user.users_role.role_id }}</td>
-      <td>{{ user.roles_permissions.permission_id !== null || user.roles_permissions.permission_id !== undefined ?  user.roles_permissions.permission_id : '-' }}</td>
+      <td>{{ user['users_role.role_id'] }}</td>
+      <td>{{ user['roles_permissions.permission_id']}}</td>
     </tr>
   </ng-template>
 </p-table>

@@ -17,6 +17,7 @@ export class TableComponent {
 
   getUsers() {
     this._userService.getAllUsers().subscribe(data => {
+      console.log(data)
       this.users = data;
     })
   }
