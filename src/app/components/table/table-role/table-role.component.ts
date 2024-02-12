@@ -10,7 +10,7 @@ export class TableRoleComponent {
   @Input() roles!: IRole[];
   @Input() userRole!: number;
 
-  result: any;
+  result: IRole[] = [];
 
   ngOnInit() {
     this.getRole();
