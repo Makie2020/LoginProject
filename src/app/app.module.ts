@@ -17,12 +17,15 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TableComponent } from './components/table/table.component';
 
 // Components Prime
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { TableComponent } from './components/table/table.component';
+import { TableRoleComponent } from './components/table/table-role/table-role.component';
+import { TablePermissionsComponent } from './components/table/table-permissions/table-permissions.component';
+
 
 
 @NgModule({
@@ -35,6 +38,8 @@ import { TableComponent } from './components/table/table.component';
     AdminComponent,
     DashboardComponent,
     TableComponent,
+    TableRoleComponent,
+    TablePermissionsComponent,
   ],
   imports: [
     BrowserModule,
