@@ -1,0 +1,9 @@
+.name{
+  display: flex;
+  gap: 20px;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}

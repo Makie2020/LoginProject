@@ -18,14 +18,20 @@ import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TableComponent } from './components/table/table.component';
+import { TableRoleComponent } from './components/table/table-role/table-role.component';
+import { TablePermissionsComponent } from './components/table/table-permissions/table-permissions.component';
 
 // Components Prime
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { TableRoleComponent } from './components/table/table-role/table-role.component';
-import { TablePermissionsComponent } from './components/table/table-permissions/table-permissions.component';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DialogModule } from 'primeng/dialog'
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -51,6 +57,11 @@ import { TablePermissionsComponent } from './components/table/table-permissions/
     MenubarModule,
     ButtonModule,
     TableModule,
+    DropdownModule,
+    ToolbarModule,
+    RadioButtonModule,
+    DialogModule,
+    ConfirmDialogModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-bottom-right',
@@ -58,12 +69,14 @@ import { TablePermissionsComponent } from './components/table/table-permissions/
     }),
   ],
   providers: [
-    { 
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AddTokenInterceptor, 
-      multi: true, 
-    },  
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddTokenInterceptor,
+      multi: true,
+    },
     AuthenticationService,
+    MessageService, 
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

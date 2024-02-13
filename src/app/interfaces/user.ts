@@ -9,6 +9,7 @@ export interface User {
 }
 
 export interface IUser {
+  id: any;
   username: string,
   password: string,
   'users_role.role_id': Role,
