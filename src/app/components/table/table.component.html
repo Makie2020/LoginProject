@@ -25,33 +25,17 @@
       <td>
         {{ user.username }}
       </td>
-      <td pEditableColumn>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <p-dropdown [options]="userOptions" [(ngModel)]="user['users_role.role_id']"
-              [style]="{'width':'100%'}"></p-dropdown>
-          </ng-template>
-          <ng-template pTemplate="output">
-            <ng-container *ngIf="roles.length > 0">
-              <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
-            </ng-container>
-          </ng-template>
-        </p-cellEditor>
+      <td>
+
+        <ng-container *ngIf="roles.length > 0">
+          <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
+        </ng-container>
       </td>
-      <td pEditableColumn>
-        <p-cellEditor>
-          <ng-template pTemplate="input">
-            <p-dropdown [options]="permissionOptions" [(ngModel)]="user['roles_permissions.permission_id']"
-              [style]="{'width':'100%'}"></p-dropdown>
-          </ng-template>
-          <ng-template pTemplate="output">
-            <ng-container *ngIf="permissions.length > 0">
-              <app-table-permissions [permissions]=permissions
-                [userPermissions]="user['roles_permissions.permission_id']">
-              </app-table-permissions>
-            </ng-container>
-          </ng-template>
-        </p-cellEditor>
+      <td>
+        <ng-container *ngIf="permissions.length > 0">
+          <app-table-permissions [permissions]=permissions [userPermissions]="user['roles_permissions.permission_id']">
+          </app-table-permissions>
+        </ng-container>
       </td>
       <td>
         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
@@ -77,11 +61,11 @@
     <div class="p-field">
       <label class="p-mb-3">Role</label>
       <div class="p-formgrid p-grid">
-        <div class="p-field-radiobutton p-col-6">
+        <div class="p-field-radiobutton p-col-2">
           <p-radioButton id="role1" name="role" value=1 [(ngModel)]="users[0]['users_role.role_id']"></p-radioButton>
           <label for="role1">Admin</label>
         </div>
-        <div class="p-field-radiobutton p-col-6">
+        <div class="p-field-radiobutton p-col-2">
           <p-radioButton id="role2" name="role" value=2 [(ngModel)]="users[0]['users_role.role_id']"></p-radioButton>
           <label for="role2">User</label>
         </div>
