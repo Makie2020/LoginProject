@@ -5,7 +5,6 @@ import { RoleService } from '../../services/role.service';
 import { IUser } from '../../interfaces/user';
 import { IRole } from '../../interfaces/role';
 import { IPermission } from '../../interfaces/permission';
-import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-table',
@@ -14,13 +13,13 @@ import { SelectItem } from 'primeng/api';
 })
 export class TableComponent {
   users: IUser[] = [];
-  user!: IUser | {};
+  user!: IUser;
   roles: IRole[] = [];
   permissions: IPermission[] = [];
-  userOptions!: SelectItem[];
-  permissionOptions!: SelectItem[];
-  userDialog!: boolean;
-  submitted!: boolean;
+
+  display: boolean = false;
+  confirmationService: any;
+  messageService: any;
 
   constructor(private _userService: UserService, private _roleService: RoleService, private _permissionService: PermissionService) { }
 
@@ -28,16 +27,7 @@ export class TableComponent {
     this.getUsers();
     this.getRoles();
     this.getPermissions();
-
-    this.userOptions = [{ label: 'Admin', value: 1 }, { label: 'User', value: 2 }]
-    this.permissionOptions = [{ label: 'Create', value: 1 }, { label: 'Update', value: 2 }, { label: 'Read', value: 2 }, { label: 'Delete', value: 4 }]
   }
-
-  openNew() {
-    this.user = {};
-    this.submitted = false;
-    this.userDialog = true;
-}
 
   getUsers() {
     this._userService.getAllUsers().subscribe(data => {
@@ -57,34 +47,24 @@ export class TableComponent {
 
   editUser(user: IUser) {
     this.user = { ...user };
-    this.userDialog = true;
+    this.display = true;
   }
+
+  onDialogClose(event:any) {
+    this.display = event;
+ }
 
   deleteUser(user: IUser) {
-
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete ' + user.username + '?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        //this.users = this.user.filter(val => val.id !== user.id);
+        //this.user = {};
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+      }
+    });
   }
 
-  hideDialog() {
-    this.userDialog = false;
-    this.submitted = false;
-}
-
-saveUser() {
-    this.submitted = true;
-
-    // if (this.user.username.trim()) {
-    //     if (this.product.id) {
-    //         this.products[this.findIndexById(this.product.id)] = this.product;                
-    //     }
-    //     else {
-    //         this.product.id = this.createId();
-    //         this.product.image = 'product-placeholder.svg';
-    //         this.products.push(this.product);
-    //     }
-
-    //     this.products = [...this.products];
-    //     this.productDialog = false;
-    //     this.product = {};
-    // }
-}
 }

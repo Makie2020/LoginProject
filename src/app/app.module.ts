@@ -32,6 +32,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import { EditUserFormComponent } from './components/table/edit-user-form/edit-user-form.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     TableComponent,
     TableRoleComponent,
     TablePermissionsComponent,
+    EditUserFormComponent,
   ],
   imports: [
     BrowserModule,
