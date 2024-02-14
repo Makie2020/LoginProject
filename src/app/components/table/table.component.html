@@ -1,44 +1,46 @@
-<p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }" [rows]="10" styleClass="p-datatable-striped"
-  dataKey="id" editMode="row">
-  <ng-template pTemplate="caption"> Header</ng-template>
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Role</th>
-      <th>Permission</th>
-      <th>Edit / Delete</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-user let-editing="editing" let-ri="rowIndex">
-    <tr [pEditableRow]="user">
-      <td>
-        {{ user.id }}
-      </td>
-      <td>
-        {{ user.username }}
-      </td>
-      <td>
-        <ng-container *ngIf="roles.length > 0">
-          <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
-        </ng-container>
-      </td>
-      <td>
-        <ng-container *ngIf="permissions.length > 0">
-          <app-table-permissions [permissions]=permissions [userPermissions]="user['roles_permissions.permission_id']">
-          </app-table-permissions>
-        </ng-container>
-      </td>
-      <td>
-        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
-          (click)="editUser(user)"></button>
-        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-          (click)="deleteUser(user)"></button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
-<app-edit-user-form [user]="user" [permission]="permissions" [display]="display"
-  (displayChange)="onDialogClose($event)"></app-edit-user-form>
-
+<div>
+  <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem'}" [rows]="10"
+    styleClass="p-datatable-striped" dataKey="id">
+    <ng-template pTemplate="caption"> Header</ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Permission</th>
+        <th>Edit / Delete</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user let-editing="editing" let-ri="rowIndex">
+      <tr [pEditableRow]="user">
+        <td>
+          {{ user.id }}
+        </td>
+        <td>
+          {{ user.username }}
+        </td>
+        <td>
+          <ng-container *ngIf="roles.length > 0">
+            <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
+          </ng-container>
+        </td>
+        <td>
+          <ng-container *ngIf="permissions.length > 0">
+            <app-table-permissions [permissions]=permissions
+              [userPermissions]="user['roles_permissions.permission_id']">
+            </app-table-permissions>
+          </ng-container>
+        </td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+            (click)="editUser(user)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+            (click)="deleteUser(user)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <app-edit-user-form [user]="user" [permission]="permissions" [display]="display"
+    (displayChange)="onDialogClose($event)"></app-edit-user-form>
+</div>
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
