@@ -33,7 +33,8 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { EditUserFormComponent } from './components/table/edit-user-form/edit-user-form.component';
-
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -61,9 +62,11 @@ import { EditUserFormComponent } from './components/table/edit-user-form/edit-us
     TableModule,
     DropdownModule,
     ToolbarModule,
+    TabViewModule,
     RadioButtonModule,
     DialogModule,
     ConfirmDialogModule,
+    TabMenuModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-bottom-right',
