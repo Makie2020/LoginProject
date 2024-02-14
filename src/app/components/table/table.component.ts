@@ -13,11 +13,11 @@ import { IPermission } from '../../interfaces/permission';
 })
 export class TableComponent {
   users: IUser[] = [];
-  user!: IUser | {};
+  user!: IUser;
   roles: IRole[] = [];
   permissions: IPermission[] = [];
-  userDialog!: boolean;
-  submitted!: boolean;
+
+  display: boolean = false;
   confirmationService: any;
   messageService: any;
 
@@ -45,16 +45,14 @@ export class TableComponent {
     })
   }
 
-  openNew() {
-    this.user = {};
-    this.submitted = false;
-    this.userDialog = true;
-  }
-
   editUser(user: IUser) {
     this.user = { ...user };
-    this.userDialog = true;
+    this.display = true;
   }
+
+  onDialogClose(event:any) {
+    this.display = event;
+ }
 
   deleteUser(user: IUser) {
     this.confirmationService.confirm({
@@ -62,34 +60,11 @@ export class TableComponent {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.users = this.user.filter(val => val.id !== user.id);
-        this.user = {};
+        //this.users = this.user.filter(val => val.id !== user.id);
+        //this.user = {};
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
       }
     });
   }
 
-  hideDialog() {
-    this.userDialog = false;
-    this.submitted = false;
-  }
-
-  saveUser() {
-    this.submitted = true;
-
-    // if (this.user.username.trim()) {
-    //     if (this.product.id) {
-    //         this.products[this.findIndexById(this.product.id)] = this.product;                
-    //     }
-    //     else {
-    //         this.product.id = this.createId();
-    //         this.product.image = 'product-placeholder.svg';
-    //         this.products.push(this.product);
-    //     }
-
-    //     this.products = [...this.products];
-    //     this.productDialog = false;
-    //     this.product = {};
-    // }
-  }
 }

@@ -1,13 +1,6 @@
 <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }" [rows]="10" styleClass="p-datatable-striped"
   dataKey="id" editMode="row">
-  <ng-template pTemplate="caption"> Header
-    <p-toolbar styleClass="p-mb-4">
-      <ng-template pTemplate="left">
-        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
-          (click)="openNew()"></button>
-      </ng-template>
-    </p-toolbar>
-  </ng-template>
+  <ng-template pTemplate="caption"> Header</ng-template>
   <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
@@ -26,7 +19,6 @@
         {{ user.username }}
       </td>
       <td>
-
         <ng-container *ngIf="roles.length > 0">
           <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
         </ng-container>
@@ -46,40 +38,7 @@
     </tr>
   </ng-template>
 </p-table>
-<p-dialog [(visible)]="userDialog" [style]="{width: '450px'}" header="User Details" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-    <div class="p-field">
-      <label for="name">Username</label>
-      <input type="text" pInputText id="name" [(ngModel)]="users[0].username" required autofocus />
-      <small class="p-invalid" *ngIf="submitted && !users[0].username">Username is required.</small>
-    </div>
-    <div class="p-field">
-      <label for="description">Id</label>
-      <input type="text" pInputText id="id" [(ngModel)]="users[0].id" required autofocus />
-    </div>
-
-    <div class="p-field">
-      <label class="p-mb-3">Role</label>
-      <div class="p-formgrid p-grid">
-        <div class="p-field-radiobutton p-col-2">
-          <p-radioButton id="role1" name="role" value=1 [(ngModel)]="users[0]['users_role.role_id']"></p-radioButton>
-          <label for="role1">Admin</label>
-        </div>
-        <div class="p-field-radiobutton p-col-2">
-          <p-radioButton id="role2" name="role" value=2 [(ngModel)]="users[0]['users_role.role_id']"></p-radioButton>
-          <label for="role2">User</label>
-        </div>
-      </div>
-    </div>
-    <div class="p-field p-col">
-      <label for="price">Price</label>
-      <p-inputNumber id="price" [(ngModel)]="users[0].id"></p-inputNumber>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveUser()"></button>
-  </ng-template>
-</p-dialog>
+<app-edit-user-form [user]="user" [permission]="permissions" [display]="display"
+  (displayChange)="onDialogClose($event)"></app-edit-user-form>
 
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
