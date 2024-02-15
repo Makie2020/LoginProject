@@ -7,31 +7,31 @@
   </ng-template>
   <ng-template pTemplate="content">
 
-    <div class="p-field">
-      <label for="description">Id:</label>
-      <p>{{user.id}}</p>
+    <div>
+      <label for="id" class="block text-900 font-medium mb-2">Id: </label>
+      <input id="id" [(ngModel)]="user.id" type="text" placeholder="id" pInputText class="w-full mb-3" [disabled]="true">
     </div>
-    <div class="p-field">
-      <label for="name">Username:</label>
-      <p> {{user.username}} </p>
+    <div>
+      <label for="username" class="block text-900 font-medium mb-2">Username:</label>
+      <input id="username" [(ngModel)]="user.username" type="text" placeholder="Username" pInputText
+        class="w-full mb-3" [disabled]="true">
     </div>
-    <div class="p-field">
-      <label class="p-mb-3">Role:</label>
-      <div class="p-formgrid p-grid">
-        <div class="p-field-radiobutton p-col-2">
-          <p-radioButton id="role1" name="role" value="1" [(ngModel)]="user['users_role.role_id']"></p-radioButton>
-          <label for="role1">Admin</label>
-        </div>
-        <div class="p-field-radiobutton p-col-2">
-          <p-radioButton id="role2" name="role" value="2" [(ngModel)]="user['users_role.role_id']"></p-radioButton>
-          <label for="role2">User</label>
-        </div>
+    <div>
+      <label class="block text-900 font-medium mb-2">Role:</label>
+      <div class="mb-2">
+        <p-radioButton id="role1" name="role" value="1" [(ngModel)]="user['users_role.role_id']"
+          class="mr-2" (ngModelChange) = changedValue($event) ></p-radioButton>
+        <label for="role1" class="mr-4">Admin</label>
+
+        <p-radioButton id="role2" name="role" value="2" [(ngModel)]="user['users_role.role_id']"
+          class="mr-2" (ngModelChange) = changedValue($event)></p-radioButton >
+        <label for="role2">User</label>
       </div>
     </div>
-    <div class="p-field">
-      <label for="permissions">Permissions:</label> 
-        <app-table-permissions [userPermissions]="user['roles_permissions.permission_id']">
-        </app-table-permissions>
+    <div class="mt-2">
+      <label for="permissions" class="block text-900 font-medium mb-2">Permissions:</label>
+      <app-table-permissions [userPermissions]="user['roles_permissions.permission_id']">
+      </app-table-permissions>
     </div>
   </ng-template>
   <ng-template pTemplate="footer">

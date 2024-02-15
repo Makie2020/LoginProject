@@ -27,6 +27,10 @@ export class EditRoleFormComponent {
     this.displayChange.emit(false);
   }
 
+  changedValue($event: any) {
+    console.log($event)
+  }
+
   ngOnDestroy() {
     this.displayChange.unsubscribe();
   }
