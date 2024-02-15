@@ -1,0 +1,32 @@
+<div>
+  <p-table [value]="rolePermissions" [tableStyle]="{ 'min-width': '50rem'}" styleClass="p-datatable-striped">
+    <ng-template pTemplate="caption"> Roles & Permissions</ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Role</th>
+        <th>Permission</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rolePermission let-editing="editing" let-ri="rowIndex">
+      <tr>
+        <td>
+          {{ rolePermission.id }}
+        </td>
+        <td>
+          <ng-container *ngIf="roles.length > 0">
+            <app-table-role [roles]=roles [userRole]="rolePermission.role_id"></app-table-role>
+          </ng-container>
+        </td>
+        <td>
+          <div class="checkboxDiv">
+            <p-checkbox label="Create" name="create" value="1" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+            <p-checkbox label="Update" name="update" value="2" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+            <p-checkbox label="Read" name="read" value="3" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+            <p-checkbox label="Delete" name="delete" value="4" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

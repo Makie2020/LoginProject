@@ -29,11 +29,9 @@
       </div>
     </div>
     <div class="p-field">
-      <label for="permissions">Permissions:</label>
-      <ng-container *ngIf="permission.length > 0">
-        <app-table-permissions [permissions]=permission [userPermissions]="user['roles_permissions.permission_id']">
+      <label for="permissions">Permissions:</label> 
+        <app-table-permissions [userPermissions]="user['roles_permissions.permission_id']">
         </app-table-permissions>
-      </ng-container>
     </div>
   </ng-template>
   <ng-template pTemplate="footer">
