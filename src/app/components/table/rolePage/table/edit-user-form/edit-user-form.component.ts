@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IUser } from '../../../interfaces/user';
-import { IPermission } from '../../../interfaces/permission';
-import { UserRoleService } from '../../../services/user-role.service';
+import { IUser } from '../../../../../interfaces/user';
+import { IPermission } from '../../../../../interfaces/permission';
+import { UserRoleService } from '../../../../../services/user-role.service';
 
 @Component({
   selector: 'app-edit-user-form',
@@ -13,18 +13,17 @@ export class EditUserFormComponent {
   submitted!: boolean;
   @Input() display!: boolean;
   @Input() user!: IUser;
-  @Input() permission!: IPermission[];
   @Output() displayChange = new EventEmitter();
-  
-  constructor(private _userRoleService: UserRoleService) {}
 
-  updateUserRole () {
+  constructor(private _userRoleService: UserRoleService) { }
+
+  updateUserRole() {
     this.submitted = true;
     this._userRoleService.updateRoles(this.user.id, this.user['users_role.role_id']).subscribe();
     this.displayChange.emit(false);
   }
 
-  onClose(){
+  onClose() {
     this.displayChange.emit(false);
   }
 

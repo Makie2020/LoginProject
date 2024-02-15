@@ -1,0 +1,14 @@
+<div class="layout-topbar flex justify-content-between topbar">
+  <div>
+    <img src="" />
+    <p>LOGO</p>
+  </div>
+  <div #topbarmenu class="layout-topbar-menu"
+    [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+
+    <p-menubar [model]="items" class="mr-2">
+      <button (click)="logOut()" type="button" pButton label="LogOut" icon="pi pi-power-off"
+        style="margin-left:.25em"></button>
+    </p-menubar>
+  </div>
+</div>

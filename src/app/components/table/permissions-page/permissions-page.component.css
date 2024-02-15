@@ -1,0 +1,11 @@
+div {
+  max-width: 98%;
+  margin: auto;
+}
+
+.checkboxDiv{
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 0px;
+}
