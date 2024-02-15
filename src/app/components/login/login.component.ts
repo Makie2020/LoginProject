@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this._AuthenticationService.login(user).subscribe({
       next: (token) => {
         localStorage.setItem('token', token);
-        this.router.navigate(['/welcome'])
+        this.router.navigate(['/home'])
       },
       error: (e: HttpErrorResponse) => {
         this._errorService.msjError(e);

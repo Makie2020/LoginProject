@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
-import { UserService } from '../../../../services/user.service';
-import { PermissionService } from '../../../../services/permission.service';
-import { RoleService } from '../../../../services/role.service';
+import { UserService } from '../../../services/user.service';
+import { PermissionService } from '../../../services/permission.service';
+import { RoleService } from '../../../services/role.service';
 
-import { IUser } from '../../../../interfaces/user';
-import { IRole } from '../../../../interfaces/role';
-import { IPermission } from '../../../../interfaces/permission';
+import { IUser } from '../../../interfaces/user';
+import { IRole } from '../../../interfaces/role';
+import { IPermission } from '../../../interfaces/permission';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  selector: 'app-role-page',
+  templateUrl: './role-page.component.html',
+  styleUrl: './role-page.component.css'
 })
-export class TableComponent {
+export class RolePageComponent {
   users: IUser[] = [];
   user!: IUser;
   roles: IRole[] = [];

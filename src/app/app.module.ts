@@ -12,16 +12,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignInComponent } from './components/register/signin.component';
+import { RegisterComponent } from './components/register/register.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { AdminComponent } from './pages/admin-page/admin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TableComponent } from './components/table/rolePage/table/table.component';
+import { RolePageComponent } from './components/table/role-page/role-page.component';
 import { TableRoleComponent } from './components/table/table-role/table-role.component';
 import { TablePermissionsComponent } from './components/table/table-permissions/table-permissions.component';
 import { PermissionsPageComponent } from './components/table/permissions-page/permissions-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 // Components Prime
 import { MenubarModule } from 'primeng/menubar';
@@ -34,31 +35,32 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { EditUserFormComponent } from './components/table/rolePage/table/edit-user-form/edit-user-form.component';
+import { EditRoleFormComponent } from './components/table/role-page/edit-role-form/edit-role-form.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignInComponent,
+    RegisterComponent,
     SpinnerComponent,
     TopbarComponent,
     AdminComponent,
     DashboardComponent,
-    TableComponent,
+    RolePageComponent,
     TableRoleComponent,
     TablePermissionsComponent,
-    EditUserFormComponent,
+    EditRoleFormComponent,
     PermissionsPageComponent,
     TopbarComponent,
-    WelcomePageComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     InputTextModule,
     PanelModule,
     PasswordModule,
+    BreadcrumbModule,
     CheckboxModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({

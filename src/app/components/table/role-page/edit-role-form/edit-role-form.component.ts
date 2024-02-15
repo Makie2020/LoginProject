@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IUser } from '../../../../../interfaces/user';
-import { IPermission } from '../../../../../interfaces/permission';
-import { UserRoleService } from '../../../../../services/user-role.service';
+import { IUser } from '../../../../interfaces/user';
+import { IPermission } from '../../../../interfaces/permission';
+import { UserRoleService } from '../../../../services/user-role.service';
 
 @Component({
-  selector: 'app-edit-user-form',
-  templateUrl: './edit-user-form.component.html',
-  styleUrl: './edit-user-form.component.css'
+  selector: 'app-edit-role-form',
+  templateUrl: './edit-role-form.component.html',
+  styleUrl: './edit-role-form.component.css'
 })
-export class EditUserFormComponent {
+export class EditRoleFormComponent {
   userDialog!: boolean;
   submitted!: boolean;
   @Input() display!: boolean;
@@ -25,6 +25,10 @@ export class EditUserFormComponent {
 
   onClose() {
     this.displayChange.emit(false);
+  }
+
+  changedValue($event: any) {
+    console.log($event)
   }
 
   ngOnDestroy() {

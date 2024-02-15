@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../services/authentication.services';
 
 })
 export class DashboardComponent implements OnInit {
-  listProduct: Product[] = []
+  listProducts: Product[] = []
   user: any;
   admin: any;
   permissions: any;
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   getProducts() {
     this._productService.getProducts().subscribe(data => {
-      this.listProduct = data;
+      this.listProducts = data;
     })
   }
 

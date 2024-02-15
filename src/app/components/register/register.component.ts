@@ -9,10 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class SignInComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   username: string = '';
   password: string = '';
   confirmPassword: string = '';
@@ -28,12 +28,12 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
 
   addUser() {
-
     if (this.registerForm.value.username == '' || this.registerForm.value.password == '' || this.registerForm.value.confirmPassword == '') {
       this.toastr.error('All fields are required', 'Error');
       return;

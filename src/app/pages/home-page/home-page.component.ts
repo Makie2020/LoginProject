@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.services';
 
 @Component({
-  selector: 'app-welcome-page',
-  templateUrl: './welcome-page.component.html',
-  styleUrl: './welcome-page.component.css'
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrl: './home-page.component.css'
 })
-export class WelcomePageComponent {
+export class HomePageComponent {
   user: any;
 
   constructor(public _authenticationService: AuthenticationService) {}
