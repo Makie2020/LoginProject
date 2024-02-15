@@ -28,12 +28,13 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
 
   addUser() {
-
+    console.log(this.registerForm.value)
     if (this.registerForm.value.username == '' || this.registerForm.value.password == '' || this.registerForm.value.confirmPassword == '') {
       this.toastr.error('All fields are required', 'Error');
       return;
