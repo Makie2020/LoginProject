@@ -16,11 +16,12 @@ export class EditRoleFormComponent {
   submitted!: boolean;
   userPermission: number[] | undefined;
   rolePermissions!: IRolePermission[];
+  permissionIds!: number [];
 
   @Input() display!: boolean;
   @Input() user!: IUser;
   @Input() roles!: IRole[];
-  @Input() permissions! : IPermission[];
+  @Input() permissions!: IPermission[];
   @Output() displayChange = new EventEmitter();
 
   constructor(private _userRoleService: UserRoleService, private _rolePermissionService: RolePermissionService) { }
@@ -29,7 +30,7 @@ export class EditRoleFormComponent {
     this.getRolePermissions();
   }
 
-  getRolePermissions () {
+  getRolePermissions() {
     this._rolePermissionService.getRolePermissions().subscribe(data => {
       this.rolePermissions = data;
     })
@@ -45,14 +46,9 @@ export class EditRoleFormComponent {
   }
 
   changedValue($event: any) {
-    console.log($event) 
+    let permissionIds = this.rolePermissions.filter(rolePermission => rolePermission.role_id == $event).map((a:IRolePermission) => a.permission_id);
 
-
-    if ($event === 1) {
-      this.user['roles_permissions.permission_id'] = [1, 2, 3, 4]
-    } else {
-      this.user['roles_permissions.permission_id'] = [3, 1]
-    }
+    this.user['roles_permissions.permission_id'] = permissionIds;
   }
 
   ngOnDestroy() {
