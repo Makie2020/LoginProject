@@ -9,15 +9,15 @@ import { PermissionService } from '../../../services/permission.service';
 })
 export class TablePermissionsComponent {
   permissions!: IPermission[];
-  @Input() userPermissions!: number[];
+  userPermissions: IPermission[] = [];
 
-  permission: IPermission[] = [];
+  @Input() userPermissionsIds!: number[];
+
+  constructor(private _permissionService: PermissionService) { }
 
   ngOnInit() {
     this.getPermissions();
-  }
-
-  constructor(private _permissionService: PermissionService) { }
+  } 
 
   getPermissions() {
     this._permissionService.getPermissions().subscribe(data => {
@@ -27,6 +27,6 @@ export class TablePermissionsComponent {
   }
   
   findPermissions() {
-    this.permission = this.permissions.filter((permission) => this.userPermissions.includes(permission.id));
+    this.userPermissions = this.permissions.filter((permission) => this.userPermissionsIds.includes(permission.id));
   }
 }
