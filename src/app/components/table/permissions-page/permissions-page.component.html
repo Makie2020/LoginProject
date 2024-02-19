@@ -20,11 +20,20 @@
         </td>
         <td>
           <div class="checkboxDiv">
-            <p-checkbox label="Create" name="create" value="1" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+            <ng-template ngFor let-permission [ngForOf]="rolePermissions" let-i="index" class="flex">
+            <p-checkbox label={{permission.id}} name="create" value="1" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
             <p-checkbox label="Update" name="update" value="2" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
             <p-checkbox label="Read" name="read" value="3" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
             <p-checkbox label="Delete" name="delete" value="4" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
+          </ng-template>
           </div>
+        </td>
+        <td>
+          <!-- <ng-template ngFor let-permission [ngForOf]="rolePermissions" let-i="index" class="flex">
+            <p-radioButton id="{{rolePermission.permission_id}}" name="permission" value="{{rolePermission.permission_id}}"
+              [(ngModel)]= rolePermission.permission_id[i] class="mr-2" [disabled]="true"></p-radioButton>
+              <label for="{{rolePermission.permission_id}}" class="mr-4">{{rolePermission.name}}</label>  -->
+         
         </td>
       </tr>
     </ng-template>
