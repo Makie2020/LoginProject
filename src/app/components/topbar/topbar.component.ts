@@ -25,7 +25,7 @@ export class TopbarComponent {
       {
         label: 'Home',
         icon: 'pi pi-fw pi-home',
-        routerLink: ['/welcome']
+        routerLink: ['/home']
       },
       {
         label: 'Dashboard',
@@ -33,8 +33,8 @@ export class TopbarComponent {
         routerLink: ['/dashboard']
       },
       {
-        label: 'Users',
-        icon: 'pi pi-fw pi-pencil',
+        label: 'Administracion',
+        icon: 'pi pi-fw pi-cog',
         visible: this._authenticationService.isAdmin,
         routerLink: ['/admin']
       },

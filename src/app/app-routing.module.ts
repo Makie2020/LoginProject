@@ -6,8 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminComponent } from './pages/admin-page/admin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { RolePageComponent } from './components/table/role-page/role-page.component';
-import { PermissionsPageComponent } from './components/table/permissions-page/permissions-page.component';
+import { RoleTableComponent } from './components/table/role-table/role-table.component';
+import { PermissionsTableComponent } from './components/table/permissions-table/permissions-table.component';
 
 // Guards
 import { AuthGuard } from './utils/guards/auth.guard';
@@ -23,10 +23,9 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminGuard],
     children: [
-      { path: 'home', component: RolePageComponent },
-      { path: 'users', component: RolePageComponent },
-      { path: 'role', component: RolePageComponent },
-      { path: 'permission', component: PermissionsPageComponent },
+      { path: '', component: RoleTableComponent },
+      { path: 'users', component: RoleTableComponent },
+      { path: 'permission', component: PermissionsTableComponent },
     ]
   },
   { path: '**', redirectTo: 'login', pathMatch: 'full' }

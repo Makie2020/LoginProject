@@ -10,11 +10,11 @@ import { IPermission } from '../../../interfaces/permission';
 
 
 @Component({
-  selector: 'app-role-page',
-  templateUrl: './role-page.component.html',
-  styleUrl: './role-page.component.css'
+  selector: 'app-role-table',
+  templateUrl: './role-table.component.html',
+  styleUrl: './role-table.component.css'
 })
-export class RolePageComponent {
+export class RoleTableComponent {
   users: IUser[] = [];
   user!: IUser;
   roles: IRole[] = [];

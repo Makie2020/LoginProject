@@ -5,17 +5,16 @@ import { MenuItem } from 'primeng/api';
 
 export class AdminComponent implements OnInit {
   loading = false;
-  items: MenuItem[] | undefined;
+  items!: MenuItem[];
 
-  activeItem: MenuItem | undefined;
+  activeItem!: MenuItem;
 
   constructor() { }
   ngOnInit() {
     this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/admin', 'home']},
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/admin', '']},
       { label: 'Users', icon: 'pi pi-fw pi-users',  routerLink: ['/admin', 'users']},
       { label: 'Permission', icon: 'pi pi-fw pi-verified', routerLink: ['/admin', 'permission']}, 
-      { label: 'Role', icon: 'pi pi-fw pi-user-edit',  routerLink: ['/admin', 'role']},
   ];
 
   this.activeItem = this.items[0];
