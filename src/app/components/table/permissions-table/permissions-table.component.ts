@@ -7,11 +7,11 @@ import { PermissionService } from '../../../services/permission.service';
 import { IPermission } from '../../../interfaces/permission';
 
 @Component({
-  selector: 'app-permissions-page',
-  templateUrl: './permissions-page.component.html',
-  styleUrl: './permissions-page.component.css'
+  selector: 'app-permissions-table',
+  templateUrl: './permissions-table.component.html',
+  styleUrl: './permissions-table.component.css'
 })
-export class PermissionsPageComponent {
+export class PermissionsTableComponent {
   rolePermissions: IRolePermission[] = [];
   rolePermission!: IRolePermission;
   roles: IRole[] = [];
