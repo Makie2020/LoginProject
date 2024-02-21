@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   constructor() { }
   ngOnInit() {
     this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/admin', '']},
+      { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/admin', 'dashboard']},
       { label: 'Users', icon: 'pi pi-fw pi-users',  routerLink: ['/admin', 'users']},
       { label: 'Permission', icon: 'pi pi-fw pi-verified', routerLink: ['/admin', 'permission']}, 
   ];
