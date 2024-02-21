@@ -25,7 +25,7 @@ export class TopbarComponent {
       {
         label: 'Home',
         icon: 'pi pi-fw pi-home',
-        routerLink: ['/welcome']
+        routerLink: ['/home']
       },
       {
         label: 'Dashboard',
