@@ -43,6 +43,11 @@ import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { MenuModule } from 'primeng/menu';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { CardModule } from 'primeng/card';
+import {StyleClassModule} from 'primeng/styleclass';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,9 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     PermissionsTableComponent,
     TopbarComponent,
     HomePageComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -79,10 +86,13 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     ConfirmDialogModule,
     TabMenuModule,
     InputTextModule,
+    CardModule,
     PanelModule,
+    StyleClassModule,
     PasswordModule,
     BreadcrumbModule,
     CheckboxModule,
+    MenuModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 4000,

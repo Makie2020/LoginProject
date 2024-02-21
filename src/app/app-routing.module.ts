@@ -13,6 +13,7 @@ import { PermissionsTableComponent } from './components/table/permissions-table/
 import { AuthGuard } from './utils/guards/auth.guard';
 import { AdminGuard } from './utils/guards/admin.guard';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,7 +24,7 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminGuard],
     children: [
-      { path: '', component: RoleTableComponent },
+      { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'users', component: RoleTableComponent },
       { path: 'permission', component: PermissionsTableComponent },
     ]
