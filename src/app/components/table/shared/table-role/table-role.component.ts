@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRole } from '../../../interfaces/role';
+import { IRole } from '../../../../interfaces/role'; 
 
 @Component({
   selector: 'app-table-role',

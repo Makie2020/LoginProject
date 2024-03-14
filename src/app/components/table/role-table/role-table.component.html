@@ -21,14 +21,12 @@
         </td>
         <td>
           <ng-container *ngIf="roles.length > 0">
-            <app-table-role [roles]=roles [userRole]="user['users_role.role_id']"></app-table-role>
+            <app-table-role [roles]=roles [userRole]="user.role_id"></app-table-role>
           </ng-container>
         </td>
         <td>
-
-          <app-table-permissions [userPermissionsIds]="user['roles_permissions.permission_id']">
+          <app-table-permissions [userPermissionsIds]="user.permissions">
           </app-table-permissions>
-
         </td>
         <td>
           <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"

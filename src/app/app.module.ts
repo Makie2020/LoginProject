@@ -18,12 +18,14 @@ import { AddTokenInterceptor } from './utils/interceptor/add-token.interceptor';
 import { AdminComponent } from './pages/admin-page/admin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RoleTableComponent } from './components/table/role-table/role-table.component';
-import { TableRoleComponent } from './components/table/table-role/table-role.component';
-import { TablePermissionsComponent } from './components/table/table-permissions/table-permissions.component';
+import { TablePermissionsComponent } from './components/table/shared/table-permissions/table-permissions.component';
 import { PermissionsTableComponent } from './components/table/permissions-table/permissions-table.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UsersTableComponent } from './components/table/users-table/users-table.component';
 import { EditRoleFormComponent } from './components/table/role-table/edit-role-form/edit-role-form.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { TableRoleComponent } from './components/table/shared/table-role/table-role.component';
 
 // Components Prime
 import { MenubarModule } from 'primeng/menubar';
@@ -44,10 +46,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuModule } from 'primeng/menu';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { CardModule } from 'primeng/card';
-import {StyleClassModule} from 'primeng/styleclass';
+import { StyleClassModule } from 'primeng/styleclass';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,6 @@ import {StyleClassModule} from 'primeng/styleclass';
     AdminComponent,
     DashboardComponent,
     RoleTableComponent,
-    TableRoleComponent,
     TablePermissionsComponent,
     EditRoleFormComponent,
     PermissionsTableComponent,
@@ -66,7 +65,8 @@ import {StyleClassModule} from 'primeng/styleclass';
     HomePageComponent,
     UsersTableComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    TableRoleComponent
   ],
   imports: [
     BrowserModule,

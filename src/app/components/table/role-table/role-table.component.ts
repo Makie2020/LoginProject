@@ -29,7 +29,7 @@ export class RoleTableComponent {
   ngOnInit() {
     this.getUsers();
     this.getRoles();
-    this.getRPermissions();
+    this.getPermissions();
   }
 
   getUsers() {
@@ -37,13 +37,14 @@ export class RoleTableComponent {
       this.users = data;
     })
   }
+
   getRoles() {
     this._roleService.getRoles().subscribe(data => {
       this.roles = data;
     })
   }
 
-  getRPermissions() {
+  getPermissions() {
     this._permissionService.getPermissions().subscribe(data => {
       this.permissions = data;
     })

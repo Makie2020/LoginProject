@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IPermission } from '../../../interfaces/permission';
-import { PermissionService } from '../../../services/permission.service';
+import { IPermission } from '../../../../interfaces/permission';
+import { PermissionService } from '../../../../services/permission.service';
 
 @Component({
   selector: 'app-table-permissions',
@@ -17,7 +17,7 @@ export class TablePermissionsComponent {
 
   ngOnInit() {
     this.getPermissions();
-  } 
+  }
 
   getPermissions() {
     this._permissionService.getPermissions().subscribe(data => {
@@ -25,7 +25,7 @@ export class TablePermissionsComponent {
       this.findPermissions();
     })
   }
-  
+
   findPermissions() {
     this.userPermissions = this.permissions.filter((permission) => this.userPermissionsIds.includes(permission.id));
   }

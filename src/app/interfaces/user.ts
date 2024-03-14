@@ -12,6 +12,6 @@ export interface IUser {
   id: any;
   username: string,
   password: string,
-  'users_role.role_id': Role,
-  'roles_permissions.permission_id': Permission[];
+  role_id: Role,
+  permissions: Permission[];
 }

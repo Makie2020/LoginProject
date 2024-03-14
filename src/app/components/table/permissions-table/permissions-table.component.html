@@ -18,7 +18,7 @@
             <app-table-role [roles]=roles [userRole]="rolePermission.role_id"></app-table-role>
           </ng-container>
         </td>
-        <td>
+        <!-- <td>
           <div class="checkboxDiv">
             <ng-template ngFor let-permission [ngForOf]="rolePermissions" let-i="index" class="flex">
             <p-checkbox label={{permission.id}} name="create" value="1" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
@@ -27,13 +27,13 @@
             <p-checkbox label="Delete" name="delete" value="4" [(ngModel)]="rolePermission.permission_id"></p-checkbox>
           </ng-template>
           </div>
-        </td>
+        </td> -->
         <td>
-          <!-- <ng-template ngFor let-permission [ngForOf]="rolePermissions" let-i="index" class="flex">
-            <p-radioButton id="{{rolePermission.permission_id}}" name="permission" value="{{rolePermission.permission_id}}"
-              [(ngModel)]= rolePermission.permission_id[i] class="mr-2" [disabled]="true"></p-radioButton>
-              <label for="{{rolePermission.permission_id}}" class="mr-4">{{rolePermission.name}}</label>  -->
-         
+          <div class="checkboxDiv">
+            <!-- <ng-template ngFor let-permission [ngForOf]="result.permission_ids" let-i="index" class="flex">
+            <p-checkbox label={{permission.name}} name={{permission.name}} value={{result.permission_ids[i]}} [(ngModel)]="result.permission_ids[i]"></p-checkbox>
+          </ng-template> -->
+          </div>
         </td>
       </tr>
     </ng-template>
