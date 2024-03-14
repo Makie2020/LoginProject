@@ -37,6 +37,7 @@ export class RoleTableComponent {
       this.users = data;
     })
   }
+
   getRoles() {
     this._roleService.getRoles().subscribe(data => {
       this.roles = data;

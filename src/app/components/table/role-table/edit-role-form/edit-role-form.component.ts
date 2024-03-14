@@ -37,7 +37,7 @@ export class EditRoleFormComponent {
   }
   updateUserRole() {
     this.submitted = true;
-    this._userRoleService.updateRoles(this.user.id, this.user['users_role.role_id']).subscribe();
+    this._userRoleService.updateRoles(this.user.id, this.user.role_id).subscribe();
     this.displayChange.emit(false);
   }
 
@@ -46,9 +46,8 @@ export class EditRoleFormComponent {
   }
 
   changedValue($event: any) {
-    console.log($event)
     let permissionIds = this.rolePermissions.filter(rolePermission => rolePermission.role_id == $event).map((a:IRolePermission) => a.permission_id);
-    this.user['roles_permissions.permission_id'] = permissionIds;
+    this.user.permissions = permissionIds;
   }
 
   ngOnDestroy() {
