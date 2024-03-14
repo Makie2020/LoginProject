@@ -48,7 +48,6 @@ export class EditRoleFormComponent {
   changedValue($event: any) {
     console.log($event)
     let permissionIds = this.rolePermissions.filter(rolePermission => rolePermission.role_id == $event).map((a:IRolePermission) => a.permission_id);
-    console.log(permissionIds)
     this.user['roles_permissions.permission_id'] = permissionIds;
   }
 
